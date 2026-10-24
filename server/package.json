@@ -1,0 +1,36 @@
+{
+  "name": "fitstore-server",
+  "version": "1.0.0",
+  "description": "FitStore backend - Express, MongoDB, Google Sign-In, Razorpay (test mode) and Resend",
+  "private": true,
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "seed": "node scripts/seedProducts.js",
+    "promote-admin": "node scripts/promoteAdmin.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "express-rate-limit": "^7.5.1",
+    "google-auth-library": "^10.9.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.24.5",
+    "morgan": "^1.10.0",
+    "razorpay": "^2.9.6",
+    "resend": "^4.8.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.4.3",
+    "supertest": "^7.1.0"
+  }
+}

@@ -1,0 +1,33 @@
+There's no "become admin" button on the website, on purpose: you have to promote your account once from the terminal.
+
+1. Sign in once with Google. Start both apps (npm run dev in server/ and in client/), open http://localhost:5173, and click Sign in with Google. This creates your user record in MongoDB.
+
+2. Promote your account. In a new terminal:
+
+
+cd server
+npm run promote-admin -- your-google-email@gmail.com
+You should see:
+
+
+Your Name <your-google-email@gmail.com> is now "admin".
+3. Refresh the website. An Admin link appears in:
+
+the top navbar (next to About), and
+your profile menu (click your avatar, then Admin Panel).
+You can also go straight to http://localhost:5173/admin.
+
+The admin panel has:
+
+Dashboard: revenue, orders, products, users, low stock.
+Products: add, edit and delete products.
+Orders: search, filter and update order status.
+If it doesn't work:
+
+"No user found with email …" means you haven't signed in with that Google account yet, or you typed a different email. Do step 1 first.
+Opening /admin shows "403 – Admins only" means the promotion didn't happen. Re-run step 2, then refresh the page.
+The command fails to connect means MONGODB_URI in server/.env is missing or wrong. The script uses the same database as the server.
+Windows: if the email isn't picked up, run node scripts/promoteAdmin.js your-email@gmail.com from the server folder.
+Without the terminal: in MongoDB Atlas, go to Browse Collections → users, edit your document and set "role": "admin".
+
+To remove admin access later, run npm run promote-admin -- your-email@gmail.com --demote.
