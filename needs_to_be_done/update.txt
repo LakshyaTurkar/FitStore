@@ -1,2 +1,0 @@
-update developed by name and email
-change google client id from client and server
